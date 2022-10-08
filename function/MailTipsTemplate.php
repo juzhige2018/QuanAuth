@@ -1,7 +1,7 @@
 <?php
 //页面全局
 $MailTipsFram = <<<Fram
-<p>尊敬的用户，上午好</p>
+<p>尊敬的用户，'.getStrTime().'</p>
 <p>这封邮件是您在平台执行了某项操作发送的，若您并未进行任何操作请忽略此邮件并对邮件内容保密。</p>
 
 [content]
@@ -26,4 +26,33 @@ $MailTipsLine = <<<Lin
 [content]<br>
 Lin;
 
+function getStrTime(){
+    $no=date("H",time());
+    if ($no>0&&$no<=5){
+        return "凌晨好";
+    }
+    if ($no>5&&$no<=8){
+        return "早上好";
+    }
+    if ($no>8&&$no<=11){
+        return "上午好";
+    }
+    if ($no>11&&$no<=13){
+        return "中午好";
+    }
+    if ($no>13&&$no<=17){
+        return "下午好";
+    }
+    if ($no>17&&$no<=19){
+        return "晚上好";
+    }
+    if ($no>19&&$no<=21){
+        return "半夜好";
+    }
+    if ($no>21&&$no<=24){
+        return "深夜好";
+    }
+    
+    return "您好";
+}
 
